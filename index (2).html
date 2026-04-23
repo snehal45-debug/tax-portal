@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthashastra | The Evolution of Indian Taxation</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --clay: #B06D45;
+            --parchment: #F5E6CA;
+            --deep-db: #1A120B;
+            --glass: rgba(255, 255, 255, 0.05);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--deep-db);
+            color: var(--parchment);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-brand { font-family: 'Cinzel', serif; color: var(--gold); }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 5%;
+            background: rgba(26, 18, 11, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: var(--parchment); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; transition: var(--transition); }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* --- Hero Section --- */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1599140842249-1c1e5b8bb5e8?q=80&w=2070&auto=format&fit=crop') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-title { font-size: 5rem; margin-bottom: 10px; text-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
+        .hero-tag { font-size: 1.2rem; max-width: 700px; color: #ccc; }
+
+        /* --- Common Layout --- */
+        section { padding: 100px 10%; }
+        .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 60px; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--gold); margin: 20px auto; }
+
+        /* --- Historical Era Content --- */
+        .era-container { display: flex; flex-direction: column; gap: 80px; }
+        .era-block { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .era-block:nth-child(even) { direction: rtl; text-align: right; }
+        .era-block:nth-child(even) .era-text { direction: ltr; }
+        .era-image { width: 100%; border-radius: 15px; border: 1px solid var(--gold); }
+
+        /* --- Cards & Interactive --- */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .info-card { 
+            background: var(--glass); 
+            padding: 30px; 
+            border-radius: 15px; 
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+        }
+        .info-card:hover { transform: translateY(-10px); background: rgba(212, 175, 55, 0.05); }
+
+        /* --- Quiz & Calculator UI --- */
+        .tool-wrap { background: #221a12; padding: 40px; border-radius: 20px; border: 1px solid var(--clay); max-width: 800px; margin: 0 auto; }
+        input, select, button { 
+            width: 100%; padding: 15px; margin: 10px 0; background: #2d231a; border: 1px solid var(--clay); 
+            color: var(--parchment); border-radius: 8px; font-size: 1rem;
+        }
+        button { background: var(--gold); color: var(--deep-db); font-weight: 700; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #fff; transform: scale(1.02); }
+
+        /* --- Comparison Table --- */
+        .roadmap-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+        .roadmap-table th, .roadmap-table td { padding: 18px; border: 1px solid rgba(212, 175, 55, 0.3); text-align: left; }
+        .roadmap-table th { background: var(--gold); color: var(--deep-db); }
+
+        footer { text-align: center; padding: 50px; background: #0e0a06; border-top: 1px solid var(--gold); margin-top: 100px; }
+        
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3rem; }
+            .era-block { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-brand">KAUTILYA ANALYTICS</div>
+        <div class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#eras">Timeline</a>
+            <a href="#types">Tax Types</a>
+            <a href="#simulators">Simulators</a>
+            <a href="#roadmap">Modern Roadmap</a>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <h1 class="hero-title" data-aos="fade-down">ARTHASHASTRA</h1>
+        <p class="hero-tag" data-aos="fade-up">A Comprehensive Exploration of India’s Fiscal Intelligence: From Ancient Dharma to Modern GST.</p>
+        <div class="sanskrit-quote" style="margin-top: 30px; font-style: italic; color: var(--gold);">
+            "तस्मात् राज्ञा नित्यं उद्युक्तेन भवितव्यम्" <br>
+            (Therefore, a King should always be active in management.)
+        </div>
+    </header>
+
+    <section id="eras">
+        <h2 class="section-title">The Three Great Epochs</h2>
+        <div class="era-container">
+            <div class="era-block" data-aos="fade-right">
+                <div class="era-text">
+                    <h3>🏛️ The Ancient Era (Mauryan Wisdom)</h3>
+                    <p style="margin-top: 15px;">
+                        The <strong>Arthashastra</strong> established that taxation was the "lifeblood of the state." 
+                        Unlike modern systems, it was deeply ethical. Taxes were used for defense, social welfare, 
+                        and building infrastructure. 
+                    </p>
+                    <ul style="margin: 15px 0; padding-left: 20px; list-style: circle;">
+                        <li><strong>Dharma-driven:</strong> King's duty to protect.</li>
+                        <li><strong>Standard Rate:</strong> 1/6th of produce (Bhaga).</li>
+                        <li><strong>The Bee Principle:</strong> Extraction without pain to the source.</li>
+                    </ul>
+                </div>
+                <div class="era-visual">
+                    <div class="info-card">
+                        <h4 style="color:var(--gold)">Kautilya's Canon</h4>
+                        <p>Focus: Equity & Justice. Rates varied by crop type and land fertility, ensuring fairness for farmers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="era-block" data-aos="fade-left">
+                <div class="era-text">
+                    <h3>⚔️ The Medieval Era (Transition)</h3>
+                    <p style="margin-top: 15px;">
+                        During the Sultanate and Mughal periods, systems shifted. <strong>Alauddin Khilji</strong> increased revenue 
+                        to 50% for military funding. Later, <strong>Raja Todar Mal</strong> introduced the <em>Zabti</em> system, 
+                        paving the way for more organized land records.
+                    </p>
+                    <ul style="margin: 15px 0; padding-left: 20px; list-style: circle;">
+                        <li><strong>Sharia Influence:</strong> Introduction of Jazia and Kharaj.</li>
+                        <li><strong>Land Measurements:</strong> Standardized poles (Jarib) used for assessment.</li>
+                        <li><strong>Rise of Intermediaries:</strong> Early roots of the Zamindari system.</li>
+                    </ul>
+                </div>
+                <div class="era-visual">
+                    <div class="info-card">
+                        <h4 style="color:var(--gold)">The Akbar Era</h4>
+                        <p>Focus: Stability. Taxes were based on 10-year average yields to prevent fluctuations during bad harvests.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="era-block" data-aos="fade-right">
+                <div class="era-text">
+                    <h3>⚡ The Modern Era (1860 - Today)</h3>
+                    <p style="margin-top: 15px;">
+                        Modern taxation in India began with the British <strong>Income Tax Act of 1860</strong>. Post-independence, 
+                        India moved toward a unified market, culminating in the <strong>GST (2017)</strong>, which simplified 
+                        the complex ancient "Shulka" into a digital framework.
+                    </p>
+                    <ul style="margin: 15px 0; padding-left: 20px; list-style: circle;">
+                        <li><strong>GST:</strong> "One Nation, One Tax."</li>
+                        <li><strong>Direct Tax:</strong> Progressive slabs based on ability to pay.</li>
+                        <li><strong>Digital India:</strong> Faceless assessment and real-time filings.</li>
+                    </ul>
+                </div>
+                <div class="era-visual">
+                    <div class="info-card">
+                        <h4 style="color:var(--gold)">Post-Independence</h4>
+                        <p>Focus: Redistribution. Tax used as a tool to reduce the socio-economic gap in a developing democracy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="simulators" style="background: #110c08;">
+        <h2 class="section-title">Interactive Intelligence</h2>
+        <div class="grid-3" style="margin-bottom: 50px;">
+            <div class="info-card">
+                <h3>Ancient Calculator</h3>
+                <p>Simulate your tax liability in a Mauryan village.</p>
+                <input type="number" id="ancient-income" placeholder="Produce (in kgs/coins)">
+                <button onclick="runAncientCalc()">Apply 1/6th Rule</button>
+                <p id="ancient-res" style="margin-top:10px; color:var(--gold)"></p>
+            </div>
+            <div class="info-card" id="quiz-container">
+                <h3>Historical Quiz</h3>
+                <p id="quiz-q">Loading Question...</p>
+                <div id="quiz-options"></div>
+                <p id="quiz-feedback" style="margin-top:10px; font-weight:600"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <h2 class="section-title">Ancient vs. Modern Comparison</h2>
+        <div class="tool-wrap" style="max-width: 100%;">
+            <table class="roadmap-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Mauryan (Kautilya)</th>
+                        <th>British Era</th>
+                        <th>Modern (Current)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Philosophy</strong></td>
+                        <td>Dharma (Welfare)</td>
+                        <td>Profit (Colonial)</td>
+                        <td>Social Justice</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Customs</strong></td>
+                        <td>Shulka (Gate Tax)</td>
+                        <td>Sea Customs</td>
+                        <td>GST & Import Duty</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Accountability</strong></td>
+                        <td>Samaharta (Chief)</td>
+                        <td>Collector</td>
+                        <td>Income Tax Dept / GSTN</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <p>Created for Educational Submission | Reference: IJCRT1803132</p>
+        <p style="margin-top: 10px; color: var(--gold);">"Revenue is the base of all ventures." — Chanakya</p>
+    </footer>
+
+    <script>
+        // Initialization
+        AOS.init({ duration: 1000 });
+
+        // Calculator Logic
+        function runAncientCalc() {
+            const val = document.getElementById('ancient-income').value;
+            const res = document.getElementById('ancient-res');
+            if(val > 0) {
+                const tax = (val / 6).toFixed(2);
+                res.innerHTML = `Royal Share: ${tax} units. <br><small>This represents the 'Bhaga' or the 1/6th share mentioned in Arthashastra.</small>`;
+            }
+        }
+
+        // Advanced Quiz Logic
+        const questions = [
+            { q: "What was the chief revenue officer called in Arthashastra?", a: ["Samaharta", "Sannidhata", "Kotwal"], c: 0 },
+            { q: "The 'Sun Analogy' for tax was given by which poet?", a: ["Kautilya", "Kalidas", "Valmiki"], c: 1 },
+            { q: "Which act introduced modern Income Tax in India?", a: ["Act of 1857", "Act of 1860", "GST Act 2017"], c: 1 }
+        ];
+        let currentQ = 0;
+
+        function renderQuiz() {
+            const data = questions[currentQ];
+            document.getElementById('quiz-q').innerText = data.q;
+            const optCont = document.getElementById('quiz-options');
+            optCont.innerHTML = "";
+            data.a.forEach((opt, i) => {
+                const b = document.createElement('button');
+                b.innerText = opt;
+                b.style.fontSize = "0.8rem";
+                b.onclick = () => {
+                    const fb = document.getElementById('quiz-feedback');
+                    if(i === data.c) {
+                        fb.innerText = "Correct! Ancient wisdom verified.";
+                        fb.style.color = "#4CAF50";
+                    } else {
+                        fb.innerText = "Try again! Consult the Arthashastra.";
+                        fb.style.color = "#FF5252";
+                    }
+                    setTimeout(() => {
+                        currentQ = (currentQ + 1) % questions.length;
+                        fb.innerText = "";
+                        renderQuiz();
+                    }, 2000);
+                };
+                optCont.appendChild(b);
+            });
+        }
+        renderQuiz();
+    </script>
+</body>
+</html>
